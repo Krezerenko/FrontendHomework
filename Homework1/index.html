@@ -11,9 +11,12 @@
     <!-- Название сайта -->
     <title>Яйца</title>
     <!-- Ссылка на фавикон -->
-    <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96 128x128 256x256" href="Egg.ico">
+    <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96 128x128 256x256" href="images/Egg.ico">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/forms.css">
 </head>
 <!-- Текст сайта -->
 <body>
@@ -21,7 +24,7 @@
     <nav>
         <div class="navbar">
             <div class="logo">
-                <a href="index.html"><img src="Logo.png" alt="Логотип"></a>
+                <a href="index.html"><img src="images/Logo.png" alt="Логотип"></a>
             </div>
 
             <ul>
@@ -30,68 +33,47 @@
                 <li><a href="#theme2">Готовка Яиц</a></li>
                 <li><a href="#theme3">Разное</a></li>
             </ul>
-        </div>
-
-        <div class="sticky-icon-container">
-            <a href="https://icedragonfish.itch.io/egg-the-game">
-                <img src="EggAd.png" alt="Игра про Яйцо">
-            </a>
+            <div class="dropdown">
+                <button class="dropdown-button">
+                    <img src="images/navbar-options.png" alt="Опции навигации">
+                </button>
+                <div class="dropdown-content">
+                    <a href="#top">Виды съедобных Яиц</a>
+                    <a href="#theme1">Разновидности Яиц</a>
+                    <a href="#theme2">Готовка Яиц</a>
+                    <a href="#theme3">Разное</a>
+                </div>
+            </div>
         </div>
     </nav>
 </header>
-<aside>
+<aside class="right-ad">
     <p>Поиграйте в новую крутую игру про Яйцо!</p>
     <a href="https://icedragonfish.itch.io/egg-the-game">
-        <p><img src="ad_1.gif" typeof="gif" alt="Рекламный постер 1"></p>
-        <p><img src="ad_2.gif" typeof="gif" alt="Рекламный постер 2"></p>
+        <p><img src="images/ad1.gif" typeof="gif" alt="Рекламный постер 1"></p>
+        <p><img src="images/ad2.gif" typeof="gif" alt="Рекламный постер 2"></p>
     </a>
 </aside>
-<main>
 
+<aside>
+    <div class="sticky-icon-container">
+        <a href="https://icedragonfish.itch.io/egg-the-game">
+            <img src="images/EggAd.png" alt="Игра про Яйцо">
+        </a>
+    </div>
+</aside>
+
+<main>
     <div class="box">
-        <h1 id="top">Виды съедобных яиц</h1>
+        <a class="anchor" id="top"></a>
+        <h1>Виды съедобных яиц</h1>
         <blockquote>
             <p>«Яйца курицу не учат» - Народная мудрость.</p>
         </blockquote>
-        <pre>
-                                   ░░░░░░░░
-                               ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░
-                          ▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-                        ▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░
-                     ██▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░
-                   ████▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░
-                  ▓██▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░
-                 ▓███▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░
-                ▓████▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░
-               ████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░
-              █████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░
-             ▓█████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░
-             ██████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░
-            ▓██████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░
-            ▓████████▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░
-            ▓██████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░
-            ███████▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░
-            ▓██████▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░
-            ▓██████▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░
-            ▓█████▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░
-            ▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░
-            ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░
-            ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░
-             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░
-             ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░
-              ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-              ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-                ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░
-                 ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-                  ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░
-                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-                      ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒
-                          ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒
-                             ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░
-    </pre>
 
-        <section id="theme1">
-            <h2>Раздел 1: Разновидности яиц</h2>
+        <a class="anchor" id="theme1"></a>
+        <section>
+            <h2>Разновидности яиц</h2>
 
             <!-- Упорядоченный список -->
             <ol type="A" start="2">
@@ -110,37 +92,56 @@
 
             <!-- Список описаний -->
             <dl>
-                <dt><b>Куриные яйца</b></dt>
-                <dd><strong>Наиболее</strong> распространенные.</dd>
-                <dd><abbr title="Куриное">К.</abbr> Яйцо используется в большинстве рецептов.</dd>
-                <dd><div class="image-box"><a
-                        href="https://icdn.lenta.ru/images/2019/01/14/10/20190114105505115/square_320_2f53b2aafd036cda9059233c7ab91d9e.png">
-                    <img src="Egg.png" alt="Яйцо куриное" title="Яичко">
-                </a></div></dd>
+                <div class="egg-list-item">
+                    <dt><b>Куриные яйца</b></dt>
+                    <dd><strong>Наиболее</strong> распространенные.</dd>
+                    <dd><abbr title="Куриное">К.</abbr> Яйцо используется в большинстве рецептов.</dd>
+                    <dd>
+                        <div class="image-box"><a
+                                href="https://icdn.lenta.ru/images/2019/01/14/10/20190114105505115/square_320_2f53b2aafd036cda9059233c7ab91d9e.png">
+                            <img src="images/Egg.png" alt="Яйцо куриное" title="Яичко">
+                        </a></div>
+                    </dd>
+                </div>
 
-                <dt><sub>Перепелиные яйца</sub></dt>
-                <dd><u>Мелкие и деликатные.</u></dd>
-                <dd>Популярны в качестве закуски.</dd>
-                <dd><div class="image-box"><a href="https://egg-guru.ru/wp-content/uploads/2018/01/2.jpg">
-                    <img src="quail_Egg.jpg" alt="Яйцо перепелиное в сравнении с куриным" title="Перепелиные Яички">
-                </a></div></dd>
+                <div class="egg-list-item">
+                    <dt><sub>Перепелиные яйца</sub></dt>
+                    <dd><u>Мелкие и деликатные.</u></dd>
+                    <dd>Популярны в качестве закуски.</dd>
+                    <dd>
+                        <div class="image-box"><a href="https://egg-guru.ru/wp-content/uploads/2018/01/2.jpg">
+                            <img src="images/quailEgg.jpg" alt="Яйцо перепелиное в сравнении с куриным"
+                                 title="Перепелиные Яички">
+                        </a></div>
+                    </dd>
+                </div>
 
-                <dt><em>Утиные яйца</em></dt>
-                <dd>Более жирные и имеют <i>насыщенный вкус</i>.</dd>
-                <dd><cite>Часто используется в азиатской кухне.</cite></dd>
-                <dd><div class="image-box"><a href="https://egg-guru.ru/wp-content/uploads/2017/11/Sravnenie-utinogo-yaja-s-kurinym.jpg">
-                    <img src="duck_Egg.jpg" alt="Яйцо утиное в сравнении с куриным" title="Утиное Яичко">
-                </a></div></dd>
+                <div class="egg-list-item">
+                    <dt><em>Утиные яйца</em></dt>
+                    <dd>Более жирные и имеют <i>насыщенный вкус</i>.</dd>
+                    <dd><cite>Часто используется в азиатской кухне.</cite></dd>
+                    <dd>
+                        <div class="image-box"><a
+                                href="https://egg-guru.ru/wp-content/uploads/2017/11/Sravnenie-utinogo-yaja-s-kurinym.jpg">
+                            <img src="images/duckEgg.jpg" alt="Яйцо утиное в сравнении с куриным" title="Утиное Яичко">
+                        </a></div>
+                    </dd>
+                </div>
 
-                <dt><i>Гусиные яйца</i></dt>
-                <dd>Большие и более плотные, имеют сильный вкус.</dd>
+                <div class="egg-list-item">
+                    <dt><i>Гусиные яйца</i></dt>
+                    <dd>Большие и более плотные, имеют сильный вкус.</dd>
+                </div>
 
-                <dt><strong>Страусовые яйца</strong></dt>
-                <dd>Очень большие, одно <b>страусовое</b> яйцо может заменить несколько куриных.</dd>
+                <div class="egg-list-item">
+                    <dt><strong>Страусовые яйца</strong></dt>
+                    <dd>Очень большие, одно <b>страусовое</b> яйцо может заменить несколько куриных.</dd>
+                </div>
             </dl>
         </section>
 
-        <section id="theme2">
+        <a class="anchor" id="theme2"></a>
+        <section>
             <h2>Готовка яиц</h2>
             <article>
                 <h3> Готовка яиц: разнообразие и вкус </h3>
@@ -148,20 +149,17 @@
                 <p> Яйца — это универсальный ингредиент, который можно готовить множеством разных способов. Каждый метод
                     придаёт блюду уникальный вкус и текстуру. </p>
 
-                <img src="egg_cookin.jpg" alt="Готовка Яиц" class="floating-image">
+                <img src="images/eggCooking.jpg" alt="Готовка Яиц" class="floating-image">
 
                 <ol>
                     <li><p>Варёные яйца: Это один из самых простых способов. В зависимости от времени варки, яйца могут
-                        быть
-                        мягко варёными с жидким желтком или твёрдо варёными с плотным желтком.</p></li>
+                        быть мягко варёными с жидким желтком или твёрдо варёными с плотным желтком.</p></li>
 
                     <li><p>Яйца всмятку: Для этого яйца варят недолго, так что белок уже свернулся, а желток остаётся
-                        слегка
-                        жидким. Это идеальный вариант для лёгкого завтрака или в качестве гарнира.</p></li>
+                        слегка жидким. Это идеальный вариант для лёгкого завтрака или в качестве гарнира.</p></li>
 
                     <li><p>Яйца всмятку: Яйцо погружают в кипящую воду на несколько минут, чтобы белок полностью
-                        свернулся,
-                        а желток остался жидким. Такой способ идеально подходит для обедов и закусок.</p></li>
+                        свернулся, а желток остался жидким. Такой способ идеально подходит для обедов и закусок.</p></li>
 
                     <li><p>Яичница: Простое и быстрое блюдо, которое можно приготовить в разных вариантах. Можно делать
                         яичницу-глазунью, где яйцо готовится целиком с нетронутым желтком, или же яичницу-болтунью, где
@@ -172,28 +170,80 @@
                         сковороде или готовить на пару.</p></li>
 
                     <li><p>Каждый из этих методов позволяет раскрыть богатство вкусов и текстур, которые могут стать
-                        основой
-                        для множества вкусных и питательных блюд.</p></li>
+                        основой для множества вкусных и питательных блюд.</p></li>
                 </ol>
             </article>
         </section>
 
-        <section id="theme3">
-            <h2>Раздел 3: Разное</h2>
+        <a class="anchor" id="theme3"></a>
+        <section>
+            <h2>Разное</h2>
 
-            <h3>Карта изображения</h3>
-            <p>Нажмите на разные области для открытия исходного изображения</p>
-            <map name="eggmap">
-                <area shape="circle" coords="50,50,30"
-                      href="https://icdn.lenta.ru/images/2019/01/14/10/20190114105505115/square_320_2f53b2aafd036cda9059233c7ab91d9e.png"
-                      alt="Круг">
-                <area shape="rect" coords="100,100,200,200"
-                      href="https://egg-guru.ru/wp-content/uploads/2017/11/Sravnenie-utinogo-yaja-s-kurinym.jpg"
-                      alt="Прямоугольник">
-                <area shape="poly" coords="250,150,300,100,350,150,300,200"
-                      href="https://egg-guru.ru/wp-content/uploads/2018/01/2.jpg" alt="Многоугольник">
-            </map>
-            <img src="Eggmap.bmp" usemap="#eggmap" alt="Карта изображения" width="400" height="300">
+            <div class="form-container">
+                <fieldset>
+                    <legend>Регистрация пользователя</legend>
+
+                    <form action="#" method="POST" autocomplete="on">
+                        <label for="username">Имя пользователя:</label>
+                        <input class="input-container" type="text" id="username" name="username" placeholder="Введите имя" required minlength="3" maxlength="20" autocomplete="on">
+
+                        <label for="phone">Телефон:</label>
+                        <input class="input-container" type="tel" id="phone" name="phone" placeholder="Введите номер телефона" pattern="[0-9]{10}" required autocomplete="on">
+
+                        <label for="email">Электронная почта:</label>
+                        <input class="input-container" type="email" id="email" name="email" placeholder="Введите email" required autocomplete="on">
+
+                        <label for="password">Пароль:</label>
+                        <input class="input-container" type="password" id="password" name="password" placeholder="Введите пароль" minlength="8" required>
+
+                        <label for="date">Дата и время:</label>
+                        <input class="input-container" type="datetime-local" id="date" name="date" required>
+
+                        <label for="file">Загрузите файл:</label>
+                        <input class="input-container" type="file" id="file" name="file">
+
+                        <p>Выберите пол:</p>
+                        <ul>
+                            <li>
+                                <label for="male">
+                                Мужской <input type="radio" id="male" name="gender" value="male">
+                                </label>
+                            </li>
+                            <li>
+                                <label for="female">
+                                Женский <input type="radio" id="female" name="gender" value="female">
+                                </label>
+                            </li>
+                        </ul>
+
+                        <label for="terms">
+                            Принять условия: <input type="checkbox" id="terms" name="terms" required>
+                        </label>
+
+
+                        <button type="submit">Отправить</button>
+                    </form>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Обратная связь</legend>
+                    <form action="#" method="POST">
+                        <label for="feedback">Ваш отзыв:</label>
+                        <textarea class="input-container" id="feedback" name="feedback" rows="5" cols="30" placeholder="Введите ваш отзыв" minlength="10" maxlength="500" required></textarea>
+
+                        <label for="rating">Оценка:</label>
+                        <select class="input-container" id="rating" name="rating" size="3" multiple required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+
+                        <button type="submit">Отправить отзыв</button>
+                    </form>
+                </fieldset>
+            </div>
+
+            <iframe src="video.html" allowfullscreen></iframe>
         </section>
     </div>
 </main>
