@@ -1,5 +1,7 @@
 ﻿nav
 {
+    --nav-dropdown-height: 200px;
+
     box-sizing: content-box;
     width: 100%;
     height: var(--nav-height);
@@ -20,18 +22,6 @@
     align-items: center;
     column-gap: 20px;
     height: 100%;
-}
-
-@media (max-width: 767px)
-{
-    html
-    {
-        --nav-options-width: var(--nav-height);
-    }
-    .navbar ul
-    {
-        visibility: hidden;
-    }
 }
 
 nav .logo
@@ -108,16 +98,6 @@ nav .logo a img
     color: var(--white-color);
 }
 
-.navbar .dropdown
-{
-
-}
-
-.navbar .dropdown a
-{
-
-}
-
 .navbar .dropdown-button
 {
     background-color: var(--dark-color);
@@ -138,11 +118,17 @@ nav .logo a img
 {
     background-color: var(--light-color);
     position: absolute;
-    top: calc(var(--nav-options-width) - 5px);
+    top: calc(var(--nav-height) - 5px);
     right: 10px;
     z-index: 2;
-    display: none;
-    flex-direction: column;
+    transition-property: height, visibility;
+    transition-duration: 0.5s, 0.35s;
+    transition-timing-function: var(--exp-ease);
+    height: 0;
+    visibility: hidden;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    overflow: hidden;
     gap: 2px;
     border: 2px solid var(--light-color);
     border-radius: 5px;
@@ -155,18 +141,29 @@ nav .logo a img
     font-size: 1.2rem;
     font-weight: 700;
     text-decoration: none;
-    text-align: right;
     border: 2px solid var(--light-color);
     border-radius: 5px;
     padding: 5px;
-}
-
-.navbar .dropdown-content a:hover
-{
-
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
 .navbar .dropdown:hover .dropdown-content
 {
-    display: flex;
+    transition-property: height, visibility;
+    height: var(--nav-dropdown-height);
+    visibility: visible;
+}
+
+@media (max-width: 767px)
+{
+    html
+    {
+        --nav-options-width: var(--nav-height);
+    }
+    .navbar ul
+    {
+        visibility: hidden;
+    }
 }
