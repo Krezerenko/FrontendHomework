@@ -133,12 +133,12 @@ nav .logo a img
     top: 0;
     right: 0;
     z-index: 1;
-    transition-property: width, height, background-color, border-color, visibility;
+    transition-property: width, height, background-color, border-color;
     transition-duration: 1s;
     transition-timing-function: var(--exp-ease);
     height: var(--nav-options-width);
     width: var(--nav-options-width);
-    visibility: hidden;
+    /*visibility: hidden;*/
     display: grid;
     grid-template-rows: repeat(auto-fit, 1fr);
     overflow: hidden;
@@ -154,7 +154,7 @@ nav .logo a img
     width: 220px;
     background-color: var(--light-color);
     border-color: var(--light-color);
-    visibility: visible;
+    /*visibility: visible;*/
 }
 
 .navbar .dropdown-content a
