@@ -371,6 +371,48 @@ main img, picture, video
     display: block;
 }
 
+.like-button
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--light-color);
+    border-radius: 30px;
+    width: 80px;
+    height: 60px;
+    transform: scale(100%, 100%);
+    -webkit-transition: filter 0.7s var(--exp-ease), transform 0.3s var(--exp-ease);
+    filter: grayscale(100%);
+}
+
+.like-button:hover
+{
+    transform: scale(110%, 110%);
+}
+
+.like-button img
+{
+    height: 80%;
+}
+
+.like-button.counter
+{
+    height: 100%;
+}
+
+.like-button-pressed
+{
+    filter: grayscale(0%);
+}
+
+#pictures-container
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
 .cards
 {
     display: flex;
