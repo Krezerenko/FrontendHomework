@@ -257,14 +257,14 @@
                 </fieldset>
             </div>
 
-            <div class="buttons">
+            <div class="horizontal-list">
                 <button class="btn1">Button 1</button>
                 <button class="btn2">Button 2</button>
                 <button class="btn3">Button 3</button>
                 <button class="btn4" type="button" onclick="testLogin()" id="test-login">Протестировать авторизацию</button>
             </div>
 
-            <div class="buttons">
+            <div class="horizontal-list">
                 <div class="like-button" onclick="onLikeButtonClick(this)">
                     <img src="images/heart-button.webp" alt="Кнопка лайка">
                     <div class="counter">0</div>
@@ -282,6 +282,10 @@
             </div>
 
             <div id="pictures-container"></div>
+
+            <div class="horizontal-list" id="colored-eggs-container"></div>
+            <button onclick="onAddEggButtonPressed()"> Добавить Яйцо </button>
+            <button onclick="onTrashBinButtonPressed()"> Удалить Яйцо </button>
 
             <div class="cards">
                 <div class="card">

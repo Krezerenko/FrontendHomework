@@ -177,7 +177,7 @@ main img, picture, video
     width: 96%;
 }
 
-.buttons
+.horizontal-list
 {
     display: flex;
     justify-content: space-around;
@@ -490,6 +490,23 @@ main img, picture, video
     transform: skewX(0deg);
     /*opacity: 100%;*/
     backdrop-filter: blur(1px);
+}
+
+.colored-egg
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    background-image: url("../images/Logo.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transform: scale(1, 1);
+    transition: transform 1s var(--exp-ease);
+}
+
+.colored-egg-selected
+{
+    transform: scale(1.1, 1.1);
 }
 
 .video-container

@@ -1,24 +1,17 @@
-﻿"use strict"
-let answer = prompt("Желаете пройти регистрацию на сайте?", "да");
-let positive = ["да", "yes", "ага", "yeah", "наверное"];
-
-while(true)
-{
-    if (positive.indexOf(answer.toLowerCase()) !== -1)
-    {
-        alert("Харош");
-        break;
-    }
-
-    answer = prompt("НЕПРАВИЛЬНЫЙ ВВОД. ПОВТОРИТЕ ПОПЫТКУ: ", "ДА");
-}
-
-// window.onload = init;
+﻿/// Код для задания 9
+// "use strict"
+// let answer = prompt("Желаете пройти регистрацию на сайте?", "да");
+// let positive = ["да", "yes", "ага", "yeah", "наверное"];
 //
-// function init()
+// while(true)
 // {
-//     let testLoginButton = document.getElementById("test-login");
-//     testLoginButton.addEventListener("click", testLogin);
+//     if (positive.indexOf(answer.toLowerCase()) !== -1)
+//     {
+//         alert("Харош");
+//         break;
+//     }
+//
+//     answer = prompt("НЕПРАВИЛЬНЫЙ ВВОД. ПОВТОРИТЕ ПОПЫТКУ: ", "ДА");
 // }
 
 function testLogin()
@@ -111,4 +104,57 @@ function onDrawButtonPressed()
         removeEventListener("mousemove", drawPictureAtCursor);
         picturesContainer.innerHTML = "";
     }
+}
+
+function getRandomColor()
+{
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
+
+let eggsList = [];
+let selectedEgg = null;
+class ColoredEgg
+{
+    element;
+    constructor(color, parentObject)
+    {
+        this.element = document.createElement("div");
+        this.element.setAttribute("class", "colored-egg");
+        this.element.style.backgroundColor = color;
+        this.element.setAttribute("onclick", "onEggClick(this)");
+        parentObject.appendChild(this.element);
+    }
+}
+function addEgg(parentObject)
+{
+    let color = getRandomColor();
+    let egg = new ColoredEgg(color, parentObject);
+    eggsList.push(egg);
+}
+function removeEgg(eggElement)
+{
+    eggsList.splice(eggsList.indexOf(eggElement), 1);
+    eggElement.remove();
+}
+
+function onEggClick(egg)
+{
+    selectedEgg?.setAttribute("class", "colored-egg");
+    if (selectedEgg === egg)
+    {
+        selectedEgg = null;
+        return;
+    }
+    selectedEgg = egg;
+    selectedEgg.setAttribute("class", "colored-egg colored-egg-selected");
+}
+
+function onTrashBinButtonPressed()
+{
+    removeEgg(selectedEgg);
+}
+function onAddEggButtonPressed()
+{
+    let container = document.getElementById("colored-eggs-container");
+    addEgg(container);
 }
