@@ -504,9 +504,22 @@ main img, picture, video
     transition: transform 1s var(--exp-ease);
 }
 
-.colored-egg-selected
+.colored-egg.selected
 {
     transform: scale(1.1, 1.1);
+}
+
+.colored-egg .counter
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    text-align: center;
 }
 
 .video-container
