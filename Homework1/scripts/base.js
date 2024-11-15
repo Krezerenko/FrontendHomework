@@ -15,6 +15,23 @@
 // }
 "use strict"
 
+function init()
+{
+    centeredImageContainer = document.getElementById("centered-img");
+    centeredImage = centeredImageContainer.children[0];
+    centerImage();
+
+    centeredImageContainer.addEventListener("click", onCenteredImageClick);
+    window.addEventListener("resize", centerImage);
+
+    window.addEventListener("resize", adjustParallaxSize);
+    adjustParallaxSize();
+
+    window.addEventListener("scroll", adjustParallax);
+    adjustParallax();
+}
+window.onload = init;
+
 function testLogin()
 {
     let name = prompt("Введите логин");
@@ -116,6 +133,7 @@ function onDrawButtonPressed()
     }
 }
 
+// Корзина цветных Яиц
 function getRandomColor()
 {
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
@@ -128,12 +146,13 @@ class ColoredEgg
     eggElement;
     amount;
     counterElement;
+    closeElement;
     constructor(color, parentObject)
     {
         this.eggElement = document.createElement("div");
         this.eggElement.setAttribute("class", "colored-egg");
         this.eggElement.style.backgroundColor = color;
-        this.eggElement.setAttribute("onclick", "onEggClick(this)");
+        this.eggElement.onclick = onEggClick.bind(this.eggElement);
         parentObject.appendChild(this.eggElement);
 
         this.amount = 1;
@@ -142,6 +161,12 @@ class ColoredEgg
         this.counterElement.style.visibility = "hidden";
         this.counterElement.innerText = this.amount;
         this.eggElement.appendChild(this.counterElement);
+
+        this.closeElement = document.createElement("img");
+        this.closeElement.setAttribute("src", "images/close-cross.svg");
+        this.closeElement.setAttribute("alt", "Закрыть Яйцо");
+        this.closeElement.setAttribute("class", "close");
+        this.eggElement.appendChild(this.closeElement);
     }
     add(amount)
     {
@@ -193,15 +218,20 @@ function sortEggsList()
     }
 }
 
-function onEggClick(egg)
+function onEggClick(event)
 {
+    if (event.target.classList[0] === "close")
+    {
+        removeEgg(this);
+        return;
+    }
     selectedEgg?.setAttribute("class", "colored-egg");
-    if (selectedEgg === egg)
+    if (selectedEgg === this)
     {
         selectedEgg = null;
         return;
     }
-    selectedEgg = egg;
+    selectedEgg = this;
     selectedEgg.setAttribute("class", "colored-egg selected");
 }
 
@@ -225,4 +255,50 @@ function onMinusEggButtonPressed()
 function onSortEggsButtonPressed()
 {
     sortEggsList();
+}
+
+// Картинка центрируемая с помощью javascript
+
+let centeredImageContainer;
+let centeredImage;
+
+function centerImage()
+{
+    let parentRect = centeredImageContainer.parentElement.getBoundingClientRect();
+    let containerRect = centeredImageContainer.getBoundingClientRect();
+    let imgRect = centeredImage.getBoundingClientRect();
+    let parentWidth = parentRect.right - parentRect.left;
+    let containerWidth = containerRect.right - containerRect.left;
+    let imgWidth = imgRect.right - imgRect.left;
+    let margin = (parentWidth - containerWidth) / 2;
+    let padding = (containerWidth - imgWidth) / 2;
+    centeredImageContainer.style.marginLeft = margin.toString() + "px";
+    centeredImageContainer.style.marginRight = margin.toString() + "px";
+    centeredImage.style.marginLeft = padding.toString() + "px";
+    centeredImage.style.marginRight = padding.toString() + "px";
+}
+
+function onCenteredImageClick(event)
+{
+    alert(event.clientX.toString() + " " + event.clientY.toString());
+}
+
+// Параллакс
+let coefficients = [-0.1, -0.07, -0.05, -0.02];
+function adjustParallax()
+{
+    let scroll = 80 - document.body.getBoundingClientRect().top;
+    let newPositions = "";
+    for (let i = 0; i < 3; i++)
+    {
+        newPositions += "0 ";
+        newPositions += (scroll * coefficients[i]).toString() + "px, ";
+    }
+    newPositions += "0 ";
+    newPositions += (scroll * coefficients[3]).toString() + "px";
+    document.body.style.backgroundPosition = newPositions;
+}
+function adjustParallaxSize()
+{
+    document.body.style.backgroundSize = (3 * screen.height).toString() + "px";
 }
