@@ -65,6 +65,8 @@
     </div>
 </aside>
 
+<div id="pictures-container"></div>
+
 <main>
     <div class="box">
         <a class="anchor" id="top"></a>
@@ -281,14 +283,15 @@
                 </button>
             </div>
 
-            <div id="pictures-container"></div>
-
             <div class="horizontal-list" id="colored-eggs-container"></div>
-            <button onclick="onAddEggButtonPressed()"> Добавить Яйцо </button>
-            <button onclick="onTrashBinButtonPressed()"> Удалить Яйцо </button>
-            <button onclick="onPlusEggButtonPressed()"> + </button>
-            <button onclick="onMinusEggButtonPressed()"> - </button>
-            <button onclick="onSortEggsButtonPressed()"> Сортировать </button>
+            <div class="horizontal-list">
+                <button onclick="onAddEggButtonPressed()"> Добавить Яйцо </button>
+                <button onclick="onTrashBinButtonPressed()" id="trash-bin"> Удалить Яйцо </button>
+                <button onclick="onPlusEggButtonPressed()"> + </button>
+                <button onclick="onMinusEggButtonPressed()"> - </button>
+                <button onclick="onSortEggsButtonPressed()"> Сортировать </button>
+                <button id="egg-amount">Количество Яиц:<i class="counter">0</i> </button>
+            </div>
 
             <div class="cards">
                 <div class="card">
@@ -317,6 +320,26 @@
 
             <div id="centered-img">
                 <img alt="Яйцо" src="images/Egg.png">
+            </div>
+
+            <div id="contents">
+                <a href="https://google.com"><i>Ссылка 1</i></a>
+                <a href="https://yandex.ru">Ссылка 2</a>
+            </div>
+
+            <div class="gallery" id="interactive-gallery">
+                <div>Выберите картинку</div>
+                <ul>
+                    <li><img src="images/Egg.png" alt="Яйцо"></li>
+                    <li><img src="images/ostrich-egg.jpg" alt="Яйцо страуса"></li>
+                    <li><img src="images/hummingbird-egg.jpg" alt="Яйцо колибри"></li>
+                </ul>
+            </div>
+
+            <div class="slider">
+                <div class="track">
+                    <div class="thumb"></div>
+                </div>
             </div>
         </section>
     </div>

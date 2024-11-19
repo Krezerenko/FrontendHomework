@@ -184,6 +184,7 @@ main img, picture, video
 
 .horizontal-list
 {
+    position: relative;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -613,11 +614,113 @@ main img, picture, video
     background-color: var(--light-color);
     width: 70%;
     border-radius: 50px;
+    margin: 10px;
 }
 
 #centered-img img
 {
     width: 60%;
+}
+
+#contents
+{
+    display: inline;
+    background-color: var(--dark-color);
+    border-radius: 10px;
+    border: 5px solid var(--dark-color);
+}
+
+.gallery
+{
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+    background-color: var(--dark-color);
+    height: 700px;
+    width: 90%;
+    border: 10px var(--dark-color) solid;
+    border-radius: 10px;
+}
+
+.gallery>div
+{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.gallery>div>img
+{
+    margin: 0 auto;
+    border-radius: 0;
+    object-fit: cover;
+    height: 100%;
+}
+
+.gallery ul
+{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+}
+
+.gallery li
+{
+    flex-basis: 0;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gallery ul img
+{
+    transition: transform 1s var(--exp-ease);
+    transform: scale(1, 1);
+    object-fit: cover;
+    border-radius: 0;
+    height: 100%;
+}
+
+.gallery ul img:hover
+{
+    transform: scale(1.1, 1.1);
+}
+
+.slider
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--dark-color);
+}
+
+.slider .track
+{
+    position: relative;
+    width: 95%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: var(--white-color);
+}
+
+.slider .thumb
+{
+    position: absolute;
+    left: 5px;
+    top: -50%;
+    width: 8px;
+    height: 20px;
+    border-radius: 2px;
+    background-color: var(--light-color);
 }
 
 footer

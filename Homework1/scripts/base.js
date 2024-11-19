@@ -17,6 +17,12 @@
 
 function init()
 {
+    eggsContainer = document.getElementById("colored-eggs-container");
+    eggsContainer.addEventListener("mousedown", onEggPressed);
+    document.body.addEventListener("mousemove", onEggDrag);
+    window.addEventListener("mouseup", onEggDropped);
+    eggAmount = document.getElementById("egg-amount").childNodes[1];
+
     centeredImageContainer = document.getElementById("centered-img");
     centeredImage = centeredImageContainer.children[0];
     centerImage();
@@ -29,6 +35,17 @@ function init()
 
     window.addEventListener("scroll", adjustParallax);
     adjustParallax();
+
+    document.getElementById("contents").addEventListener("click", onLinkClick);
+
+    document.getElementById("interactive-gallery").addEventListener("click", onGalleryClick);
+
+    for (const slider of document.getElementsByClassName("slider"))
+    {
+        slider.addEventListener("mousedown", onSliderPressed);
+    }
+    document.body.addEventListener("mousemove", onSliderDrag);
+    window.addEventListener("mouseup", onSliderDropped);
 }
 window.onload = init;
 
@@ -100,6 +117,7 @@ function onLikeButtonClick(button)
     likeButtonPressedMap.set(button, likeButtonPressed)
 }
 
+// Рисование картинками
 let picturesContainer = document.getElementById("pictures-container");
 function drawPictureAtCursor(event)
 {
@@ -107,10 +125,10 @@ function drawPictureAtCursor(event)
     let x = event.clientX;
     let y = event.clientY;
     let image = document.createElement("img");
-    image.src = "../images/Logo.png";
+    image.src = "images/Logo.png";
     image.style.position = "fixed";
-    image.style.left = `${x}px`;
-    image.style.top = `${y}px`;
+    image.style.left = `${x - 50}px`;
+    image.style.top = `${y + 50}px`;
     image.style.width = '100px';
     image.style.height = '100px';
     image.style.zIndex = '-10';
@@ -139,8 +157,10 @@ function getRandomColor()
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
+let eggsContainer;
 let eggsList = [];
-let selectedEgg = null;
+let selectedEggs = [];
+let eggAmount;
 class ColoredEgg
 {
     eggElement;
@@ -172,11 +192,13 @@ class ColoredEgg
     {
         if (this.amount + amount <= 1)
         {
+            eggAmount.innerText = parseInt(eggAmount.innerText) + 1 - this.amount;
             this.amount = 1;
             this.counterElement.style.visibility = "hidden";
         }
         else
         {
+            eggAmount.innerText = parseInt(eggAmount.innerText) + amount;
             this.amount += amount;
             this.counterElement.style.visibility = "visible";
         }
@@ -188,17 +210,23 @@ function addNewEgg(parentObject)
     let color = getRandomColor();
     let egg = new ColoredEgg(color, parentObject);
     eggsList.push(egg);
+    eggAmount.innerText = parseInt(eggAmount.innerText) + 1;
 }
 function removeEgg(eggElement)
 {
+    if (selectedEggs.includes(this))
+    {
+        selectedEggs.splice(selectedEggs.indexOf(this));
+    }
     let i = eggsList.findIndex((egg) => egg.eggElement === eggElement);
+    eggAmount.innerText = parseInt(eggAmount.innerText) - eggsList[i].amount;
     delete eggsList[i];
     eggsList.splice(i, 1);
     eggElement.remove();
 }
 function addToEggCounter(eggElement, amount)
 {
-    if (selectedEgg == null) return;
+    if (selectedEggs.length === 0) return;
     let i = eggsList.findIndex((egg) => egg.eggElement === eggElement);
     eggsList[i].add(amount);
 }
@@ -225,32 +253,43 @@ function onEggClick(event)
         removeEgg(this);
         return;
     }
-    selectedEgg?.setAttribute("class", "colored-egg");
-    if (selectedEgg === this)
+    if (!event.ctrlKey && !event.metaKey)
     {
-        selectedEgg = null;
+        selectedEggs.forEach((selectedEgg) => selectedEgg.classList.remove("selected"));
+        selectedEggs = [];
+        if (this.classList[0] !== "colored-egg" || selectedEggs.length === 1 && selectedEggs[0] === this)
+        {
+            return;
+        }
+        selectedEggs.push(this);
+        this.classList.add("selected");
         return;
     }
-    selectedEgg = this;
-    selectedEgg.setAttribute("class", "colored-egg selected");
+    if (selectedEggs.includes(this))
+    {
+        selectedEggs.splice(selectedEggs.indexOf(this), 1);
+        this.classList.remove("selected");
+        return;
+    }
+    selectedEggs.push(this);
+    this.classList.add("selected");
 }
 
 function onAddEggButtonPressed()
 {
-    let container = document.getElementById("colored-eggs-container");
-    addNewEgg(container);
+    addNewEgg(eggsContainer);
 }
 function onTrashBinButtonPressed()
 {
-    removeEgg(selectedEgg);
+    selectedEggs.forEach((selectedEgg) => removeEgg(selectedEgg));
 }
 function onPlusEggButtonPressed()
 {
-    addToEggCounter(selectedEgg, 1);
+    selectedEggs.forEach((selectedEgg) => addToEggCounter(selectedEgg, 1));
 }
 function onMinusEggButtonPressed()
 {
-    addToEggCounter(selectedEgg, -1);
+    selectedEggs.forEach((selectedEgg) => addToEggCounter(selectedEgg, -1));
 }
 function onSortEggsButtonPressed()
 {
@@ -300,5 +339,114 @@ function adjustParallax()
 }
 function adjustParallaxSize()
 {
-    document.body.style.backgroundSize = (3 * screen.height).toString() + "px";
+    document.body.style.backgroundSize = (3.3 * screen.height).toString() + "px";
+}
+
+// Подтверждение перехода по ссылке
+function onLinkClick(event)
+{
+    if (event.target.closest("A") === null) return;
+
+    if (!confirm("Вы точно хотите перейти по ссылке?"))
+    {
+        event.preventDefault();
+        return false;
+    }
+}
+
+// Интерактивная галерея
+function onGalleryClick(event)
+{
+    let li = event.target.closest("li");
+    if (li === null) return;
+
+    this.childNodes[1].innerHTML = li.innerHTML;
+}
+
+// Слайдер
+let startingLeft;
+let startingMouseX;
+let startingMouseY;
+let isDraggingSlider = false;
+let thumb;
+function onSliderPressed(event)
+{
+    event.preventDefault();
+    thumb = event.target;
+    if (thumb.classList[0] !== "thumb") return;
+
+    startingLeft = thumb.style.left === "" ? 0 : parseInt(thumb.style.left.replace("px", ""));
+    startingMouseX = event.clientX;
+    isDraggingSlider = true;
+}
+function onSliderDrag(event)
+{
+    event.preventDefault();
+    if (!isDraggingSlider) return;
+
+    let newPos = event.clientX + startingLeft - startingMouseX;
+    let trackRect = thumb.parentElement.getBoundingClientRect();
+    let thumbRect = thumb.getBoundingClientRect();
+    newPos = clamp(newPos, 0, trackRect.width - thumbRect.width);
+    thumb.style.left = newPos.toString() + "px";
+}
+function onSliderDropped(event)
+{
+    isDraggingSlider = false;
+}
+
+function clamp(t, a, b)
+{
+    return Math.max(a, Math.min(t, b));
+}
+
+// Перетаскивание Яйца в корзину
+let isDraggingEgg = false;
+let draggedEgg;
+let dragTimer;
+function onEggPressed(event)
+{
+    draggedEgg = event.target;
+    if (draggedEgg.classList[0] !== "colored-egg") return;
+
+    startingMouseX = event.clientX;
+    startingMouseY = event.clientY;
+    startingLeft = draggedEgg.getBoundingClientRect().left - draggedEgg.parentElement.getBoundingClientRect().left;
+    dragTimer = setTimeout(() =>
+    {
+        isDraggingEgg = true;
+        draggedEgg.style.position = "absolute";
+        draggedEgg.style.zIndex = "10";
+    }, 400);
+}
+function onEggDrag(event)
+{
+    if (!isDraggingEgg) return;
+
+    draggedEgg.style.left = (event.clientX - startingMouseX + startingLeft).toString() + "px";
+    draggedEgg.style.top = (event.clientY - startingMouseY).toString() + "px";
+}
+function onEggDropped(event)
+{
+    if (!isDraggingEgg)
+    {
+        console.log(dragTimer);
+        if (dragTimer !== undefined)
+        {
+            clearTimeout(dragTimer);
+            dragTimer = undefined;
+        }
+        return;
+    }
+
+    draggedEgg.style.visibility = "hidden";
+    if (document.elementFromPoint(event.clientX, event.clientY).id !== "trash-bin")
+    {
+        isDraggingEgg = false;
+        draggedEgg.style.position = "static";
+        draggedEgg.style.visibility = "visible";
+        return;
+    }
+
+    removeEgg(draggedEgg);
 }
