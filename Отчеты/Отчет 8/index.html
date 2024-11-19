@@ -1,0 +1,307 @@
+﻿<!-- Объявление формата HTML файла -->
+<!DOCTYPE html>
+<!-- Корневой тег HTML файла -->
+<html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<!-- Головной тег файла. В нем указывается информация для браузера. -->
+<head>
+    <!-- Мета тег с указанием кодировки символов файла -->
+    <meta charset="UTF-8">
+    <!-- Мета тег с указанием разрешения видимой области сайта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Название сайта -->
+    <title>Яйца</title>
+    <!-- Ссылка на фавикон -->
+    <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64 96x96 128x128 256x256" href="images/Egg.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/forms.css">
+</head>
+<!-- Текст сайта -->
+<body>
+<header>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/Logo.png" alt="Логотип"></a>
+            </div>
+
+            <ul>
+                <li><a href="#top">Виды съедобных Яиц</a></li>
+                <li><a href="#theme1">Разновидности Яиц</a></li>
+                <li><a href="#theme2">Готовка Яиц</a></li>
+                <li><a href="#theme3">Разное</a></li>
+            </ul>
+            <div class="dropdown">
+                <button class="dropdown-button">
+                    <img src="images/navbar-options.png" alt="Опции навигации">
+                </button>
+                <div class="dropdown-content">
+                    <a href="#top">Виды съедобных Яиц</a>
+                    <a href="#theme1">Разновидности Яиц</a>
+                    <a href="#theme2">Готовка Яиц</a>
+                    <a href="#theme3">Разное</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<aside class="right-ad">
+    <p>Поиграйте в новую крутую игру про Яйцо!</p>
+    <a href="https://icedragonfish.itch.io/egg-the-game">
+        <p><img src="images/ad1.gif" typeof="gif" alt="Рекламный постер 1"></p>
+        <p><img src="images/ad2.gif" typeof="gif" alt="Рекламный постер 2"></p>
+    </a>
+</aside>
+
+<aside>
+    <div class="sticky-icon-container">
+        <a href="https://icedragonfish.itch.io/egg-the-game">
+            <img src="images/EggAd.png" alt="Игра про Яйцо">
+        </a>
+    </div>
+</aside>
+
+<main>
+    <div class="box">
+        <a class="anchor" id="top"></a>
+        <h1>Виды съедобных яиц</h1>
+        <blockquote>
+            <p>«Яйца курицу не учат» - Народная мудрость.</p>
+        </blockquote>
+
+        <a class="anchor" id="theme1"></a>
+        <section>
+            <h2>Разновидности яиц</h2>
+
+            <!-- Упорядоченный список -->
+            <ol type="A" start="2">
+                <li>Куриные яйца
+                    <!-- Вложенный неупорядоченный список -->
+                    <ul>
+                        <li>Деревенские</li>
+                        <li>Магазинные</li>
+                    </ul>
+                </li>
+                <li>Перепелиные яйца</li>
+                <li>Утиные яйца</li>
+                <li>Гусиные яйца</li>
+                <li>Страусиные яйца</li>
+            </ol>
+
+            <!-- Список описаний -->
+            <dl>
+                <div class="egg-list-item">
+                    <dt><b>Куриные яйца</b></dt>
+                    <dd><strong>Наиболее</strong> распространенные.</dd>
+                    <dd><abbr title="Куриное">К.</abbr> Яйцо используется в большинстве рецептов.</dd>
+                    <dd>
+                        <div class="image-box"><a
+                                href="https://icdn.lenta.ru/images/2019/01/14/10/20190114105505115/square_320_2f53b2aafd036cda9059233c7ab91d9e.png">
+                            <img src="images/Egg.png" alt="Яйцо куриное" title="Яичко">
+                        </a></div>
+                    </dd>
+                </div>
+
+                <div class="egg-list-item">
+                    <dt><sub>Перепелиные яйца</sub></dt>
+                    <dd><u>Мелкие и деликатные.</u></dd>
+                    <dd>Популярны в качестве закуски.</dd>
+                    <dd>
+                        <div class="image-box"><a href="https://egg-guru.ru/wp-content/uploads/2018/01/2.jpg">
+                            <img src="images/quailEgg.jpg" alt="Яйцо перепелиное в сравнении с куриным"
+                                 title="Перепелиные Яички">
+                        </a></div>
+                    </dd>
+                </div>
+
+                <div class="egg-list-item">
+                    <dt><em>Утиные яйца</em></dt>
+                    <dd>Более жирные и имеют <i>насыщенный вкус</i>.</dd>
+                    <dd><cite>Часто используется в азиатской кухне.</cite></dd>
+                    <dd>
+                        <div class="image-box"><a
+                                href="https://egg-guru.ru/wp-content/uploads/2017/11/Sravnenie-utinogo-yaja-s-kurinym.jpg">
+                            <img src="images/duckEgg.jpg" alt="Яйцо утиное в сравнении с куриным" title="Утиное Яичко">
+                        </a></div>
+                    </dd>
+                </div>
+
+                <div class="egg-list-item">
+                    <dt><i>Гусиные яйца</i></dt>
+                    <dd>Большие и более плотные, имеют сильный вкус.</dd>
+                    <dd>
+                        <div class="image-box"><a
+                                href="https://strauslend.ru/wp-content/uploads/2018/06/%D0%93%D1%83%D1%81%D0%B8%D0%BD%D1%8B%D0%B5-%D1%8F%D0%B9%D1%86%D0%B0-300x300.jpg">
+                            <img src="images/goose-egg.jpg" alt="Яйцо гусиное" title="Гусиное Яичко">
+                        </a></div>
+                    </dd>
+                </div>
+
+                <div class="egg-list-item">
+                    <dt><strong>Страусовые яйца</strong></dt>
+                    <dd>Очень большие, одно <b>страусовое</b> яйцо может заменить несколько куриных.</dd>
+                    <dd>
+                        <div class="image-box"><a
+                                href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB5dQXRaN2YCG0Fqidh911dpix_tLLvb8Izw&s">
+                            <img src="images/ostrich-egg.jpg" alt="Яйцо страусиное" title="Старусиное Яйцище">
+                        </a></div>
+                    </dd>
+                </div>
+            </dl>
+        </section>
+
+        <a class="anchor" id="theme2"></a>
+        <section>
+            <h2>Готовка яиц</h2>
+            <article>
+                <h3> Готовка яиц: разнообразие и вкус </h3>
+
+                <p> Яйца — это универсальный ингредиент, который можно готовить множеством разных способов. Каждый метод
+                    придаёт блюду уникальный вкус и текстуру. </p>
+
+                <img src="images/eggCooking.jpg" alt="Готовка Яиц" class="floating-image">
+
+                <ol>
+                    <li><p>Варёные яйца: Это один из самых простых способов. В зависимости от времени варки, яйца могут
+                        быть мягко варёными с жидким желтком или твёрдо варёными с плотным желтком.</p></li>
+
+                    <li><p>Яйца всмятку: Для этого яйца варят недолго, так что белок уже свернулся, а желток остаётся
+                        слегка жидким. Это идеальный вариант для лёгкого завтрака или в качестве гарнира.</p></li>
+
+                    <li><p>Яйца всмятку: Яйцо погружают в кипящую воду на несколько минут, чтобы белок полностью
+                        свернулся, а желток остался жидким. Такой способ идеально подходит для обедов и закусок.</p></li>
+
+                    <li><p>Яичница: Простое и быстрое блюдо, которое можно приготовить в разных вариантах. Можно делать
+                        яичницу-глазунью, где яйцо готовится целиком с нетронутым желтком, или же яичницу-болтунью, где
+                        белок и желток перемешаны и готовятся до полной готовности.</p></li>
+
+                    <li><p>Омлет: Это более сложный, но вкусный вариант, где яйца взбиваются и готовятся с добавлением
+                        различных ингредиентов, таких как овощи, мясо или сыры. Омлет можно запекать, обжаривать на
+                        сковороде или готовить на пару.</p></li>
+
+                    <li><p>Каждый из этих методов позволяет раскрыть богатство вкусов и текстур, которые могут стать
+                        основой для множества вкусных и питательных блюд.</p></li>
+                </ol>
+            </article>
+        </section>
+
+        <a class="anchor" id="theme3"></a>
+        <section>
+            <h2>Разное</h2>
+
+            <div class="form-container">
+                <fieldset>
+                    <legend>Регистрация пользователя</legend>
+
+                    <form action="#" method="POST" autocomplete="on">
+                        <label for="username">Имя пользователя:</label>
+                        <input class="input-container btn4" type="text" id="username" name="username" placeholder="Введите имя" required minlength="3" maxlength="20" autocomplete="on">
+
+                        <label for="phone">Телефон:</label>
+                        <input class="input-container btn4" type="tel" id="phone" name="phone" placeholder="Введите номер телефона" pattern="[0-9]{10}" required autocomplete="on">
+
+                        <label for="email">Электронная почта:</label>
+                        <input class="input-container btn4" type="email" id="email" name="email" placeholder="Введите email" required autocomplete="on">
+
+                        <label for="password">Пароль:</label>
+                        <input class="input-container btn4" type="password" id="password" name="password" placeholder="Введите пароль" minlength="8" required>
+
+                        <label for="date">Дата и время:</label>
+                        <input class="input-container btn4" type="datetime-local" id="date" name="date" required>
+
+                        <label for="file">Загрузите файл:</label>
+                        <input class="input-container btn4" type="file" id="file" name="file">
+
+                        <p>Выберите пол:</p>
+                        <ul>
+                            <li>
+                                <label for="male">
+                                Мужской <input type="radio" id="male" name="gender" value="male">
+                                </label>
+                            </li>
+                            <li>
+                                <label for="female">
+                                Женский <input type="radio" id="female" name="gender" value="female">
+                                </label>
+                            </li>
+                        </ul>
+
+                        <label for="terms">
+                            Принять условия: <input type="checkbox" id="terms" name="terms" required>
+                        </label>
+
+
+                        <button class="btn4" type="submit">Отправить</button>
+                    </form>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Обратная связь</legend>
+                    <form action="#" method="POST">
+                        <label for="feedback">Ваш отзыв:</label>
+                        <textarea class="input-container btn4" id="feedback" name="feedback" rows="5" cols="30" placeholder="Введите ваш отзыв" minlength="10" maxlength="500" required></textarea>
+
+                        <label for="rating">Оценка:</label>
+                        <select class="input-container btn4" id="rating" name="rating" size="3" multiple required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+
+                        <button class="btn4" type="submit">Отправить отзыв</button>
+                    </form>
+                </fieldset>
+            </div>
+
+            <div class="buttons">
+                <button class="btn1">Button 1</button>
+                <button class="btn2">Button 2</button>
+                <button class="btn3">Button 3</button>
+                <button class="btn4">Button 4</button>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <img src="images/Egg.png" alt="Яйцо куриное">
+                    <div class="card-text">Яйцо куриное</div>
+                </div>
+                <div class="card">
+                    <img src="images/ostrich-egg.jpg" alt="Яйцо страуса">
+                    <div class="card-text">Яйцо страуса</div>
+                </div>
+                <div class="card">
+                    <img src="images/hummingbird-egg.jpg" alt="Яйцо колибри">
+                    <div class="card-text">Яйцо колибри</div>
+                </div>
+                <div class="video-container">
+                    <video>
+                        <source src="images/eggvid.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-container-text">
+                        <h3>Прикольное видео</h3>
+                        <p>Про Яйца</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<footer>
+    <p>Для дополнительной информации вы можете посетить следующие <a href="https://ru.wikipedia.org/wiki/%D0%AF%D0%B9%D1%86%D0%BE" target="_blank">ресурсы</a>.</p>
+    <address>
+        <p>Связаться с нами можно по телефону: <a href="tel:+123456789">+1 (234) 567-89</a><br>
+        Написать на почту: <a href="mailto:info@example.com">info@example.com</a></p>
+    </address>
+    <div class="social-links-container">
+        <a href="https://x.com"><img src="images/twitter-icon.png" alt="Ссылка на твиттер аккаунт"></a>
+        <a href="https://x.com"><img src="images/youtube-icon.png" alt="Ссылка на ютуб канал"></a>
+        <a href="https://x.com"><img src="images/telegram-icon.png" alt="Ссылка на телеграм канал"></a>
+        <a href="https://x.com"><img src="images/discord-icon.png" alt="Ссылка на дискорд сервер"></a>
+        <a href="https://x.com"><img src="images/itch-io-icon.png" alt="Ссылка на страницу игры itch.io"></a>
+    </div>
+</footer>
+</body>
+</html>
